@@ -1,0 +1,20 @@
+class Solution {
+    public int countPrefixSuffixPairs(String[] words) {
+        int count=0;
+        int n=words.length;
+        for(int i=0;i<n;i++)
+        {
+         String str1=words[i];
+         for(int j=i+1;j<n;j++)
+         {
+           String str2=words[j];
+           int Find,Lind;
+           Find=str2.indexOf(str1);
+           Lind=str2.lastIndexOf(str1);
+           if(Find==0&&(Lind+str1.length())==str2.length())
+            count++;
+         }
+        }
+        return count;
+    }
+}
