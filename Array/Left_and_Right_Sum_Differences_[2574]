@@ -1,0 +1,20 @@
+class Solution {
+    public int[] leftRightDifference(int[] nums) {
+        int arr[]=new int[nums.length];
+        int leftsum,rightsum;
+        for(int i=0;i<nums.length;i++)
+        {
+         leftsum=0;
+         rightsum=0;
+         for(int j=0;j<i;j++)
+          leftsum+=nums[j];
+         for(int k=i+1;k<nums.length;k++)
+          rightsum+=nums[k];
+         if(leftsum>rightsum)
+          arr[i]=leftsum-rightsum;
+         else
+          arr[i]=rightsum-leftsum;
+        }
+        return arr;
+    }
+}
