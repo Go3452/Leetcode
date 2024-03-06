@@ -1,0 +1,27 @@
+class Solution {
+    public String countAndSay(int n) {
+        String s="1",S=s;
+        for(int i=2;i<=n;i++)
+        {
+         s="";
+         char ch=S.charAt(0);
+         int freq=1;
+         for(int j=1;j<S.length();j++)
+         {
+          if(ch==S.charAt(j))
+           freq++;
+          else
+          {
+           s+=String.valueOf(freq);
+           s+=ch;
+           ch=S.charAt(j);
+           freq=1;
+          }
+         }
+         s+=String.valueOf(freq);
+         s+=ch;
+         S=s;
+        }
+        return S;
+    }
+}
