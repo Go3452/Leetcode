@@ -1,0 +1,16 @@
+Find the Pivot Integerclass Solution {
+    public int pivotInteger(int n) {
+        int sum=0,pivot=-1;
+        sum=n*(n+1)/2;
+        int sum1=0;
+        for(int i=1;i<=n;i++)
+        {
+         sum1+=i;
+         if(sum1==sum-sum1+i)
+         { pivot=i;
+         break;
+         }
+        }
+        return pivot;
+    }
+}
