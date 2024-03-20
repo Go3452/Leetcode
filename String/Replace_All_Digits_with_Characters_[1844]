@@ -1,0 +1,27 @@
+class Solution {
+    public String replaceDigits(String s) {
+        String ans="";
+        for(int i=0;i<s.length();i++)
+        {
+         char ch=s.charAt(i);
+         if(i%2==1)
+         {
+          switch(ch)
+          {
+           case '0':ch=s.charAt(i-1);break;
+           case '1':ch=(char)(s.charAt(i-1)+1);break;
+           case '2':ch=(char)(s.charAt(i-1)+2);break;
+           case '3':ch=(char)(s.charAt(i-1)+3);break;
+           case '4':ch=(char)(s.charAt(i-1)+4);break;
+           case '5':ch=(char)(s.charAt(i-1)+5);break;
+           case '6':ch=(char)(s.charAt(i-1)+6);break;
+           case '7':ch=(char)(s.charAt(i-1)+7);break;
+           case '8':ch=(char)(s.charAt(i-1)+8);break;
+           case '9':ch=(char)(s.charAt(i-1)+9);break;
+          }
+         }
+         ans+=ch;
+        }
+        return ans;
+    }
+}
