@@ -1,0 +1,68 @@
+class Solution {
+    public String addBinary(String a, String b) {
+        int m=a.length(),n=b.length();
+        String ans="";
+        int carry=0;
+        for(int i=m-1,j=n-1;i>=0||j>=0;)
+        {
+         if(i>=0&&j>=0)
+         {
+          int num1=0,num2=0,sum=0;
+          if(a.charAt(i)=='1') num1=1;
+          if(b.charAt(j)=='1') num2=1;
+          sum=num1+num2+carry;
+          if(sum>1)
+          {
+           carry=sum/2;
+           sum%=2;
+          }
+          else
+           carry=0;
+          if(sum==0)
+           ans="0"+ans;
+          else
+           ans="1"+ans;
+          i--;j--;
+         }
+         else if(i>=0)
+         {
+          int num1=0,sum=0;
+          if(a.charAt(i)=='1') num1=1;
+          sum=num1+carry;
+          if(sum>1)
+          {
+           carry=sum/2;
+           sum%=2;
+          }
+          else
+           carry=0;
+          if(sum==0)
+           ans="0"+ans;
+          else
+           ans="1"+ans;
+          i--;
+         }
+         else
+         {
+          int num2=0,sum=0;
+          if(b.charAt(j)=='1') num2=1;
+          sum=num2+carry;
+          if(sum>1)
+          {
+           carry=sum/2;
+           sum%=2;
+          }
+          else
+           carry=0;
+          if(sum==0)
+           ans="0"+ans;
+          else
+           ans="1"+ans;
+          j--;
+         }
+        }
+        if(carry==1)
+         ans="1"+ans;
+        return ans;
+    }
+}
