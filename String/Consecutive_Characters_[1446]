@@ -1,0 +1,21 @@
+class Solution {
+    public int maxPower(String s) {
+       int max=1,len=1,n=s.length();
+       char ch=s.charAt(0);
+       for(int i=1;i<n;i++)
+       {
+        if(ch==s.charAt(i))
+         len++;
+        else
+        {
+         if(len>max)
+          max=len;
+         len=1;
+         ch=s.charAt(i);
+        }
+       }
+       if(len>max)
+        max=len;
+       return max;
+    }
+}
