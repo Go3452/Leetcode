@@ -1,0 +1,13 @@
+class Solution {
+    public int differenceOfSums(int n, int m) {
+        int sumdiff=0,sumnotdiff=0;
+        for(int i=1;i<=n;i++)
+        {
+         if(i%m==0)
+          sumdiff+=i;
+         else
+          sumnotdiff+=i;
+        }
+        return sumnotdiff-sumdiff;
+    }
+}
