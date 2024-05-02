@@ -1,0 +1,41 @@
+class Solution {
+    public int findMaxK(int[] nums) {
+        int neg=0,pos=0;
+        int n=nums.length;
+        for(int i=0;i<n;i++)
+        {
+         if(nums[i]<0)
+          neg++;
+         else
+          pos++;
+        }
+        int []negative = new int[neg];
+        int []positive = new int[pos];
+        for(int i=0,j=0,k=0;i<n;i++)
+        {
+         if(nums[i]<0)
+         {
+          negative[j]=nums[i];
+          negative[j]=-negative[j];
+          j++;
+         }
+         else
+         {
+          positive[k]=nums[i];
+          k++;
+         }
+        }
+        Arrays.sort(negative);
+        Arrays.sort(positive);
+        for(int i=neg-1,j=pos-1;i>=0&&j>=0;)
+        {
+         if(negative[i]==positive[j])
+          return negative[i];
+         else if(negative[i]<positive[j])
+          j--;
+         else
+          i--;
+        }
+        return -1;
+    }
+}
