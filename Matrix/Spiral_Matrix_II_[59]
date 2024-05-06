@@ -1,0 +1,35 @@
+class Solution {
+    public int[][] generateMatrix(int n) {
+        int [][]spiral = new int[n][n];
+        int count=1,m=n*n;
+        int toprow=0,bottomrow=n-1,leftcol=0,rightcol=n-1;
+        while(count<=m)
+        {
+         for(int j=leftcol;j<=rightcol&&count<=m;j++)
+         {
+          spiral[toprow][j]=count;
+          count++;
+         }
+         toprow++;
+         for(int i=toprow;i<=bottomrow&&count<=m;i++)
+         {
+          spiral[i][rightcol]=count;
+          count++;
+         }
+         rightcol--;
+         for(int j=rightcol;j>=leftcol&&count<=m;j--)
+         {
+          spiral[bottomrow][j]=count;
+          count++;
+         }
+         bottomrow--;
+         for(int i=bottomrow;i>=toprow&&count<=m;i--)
+         {
+          spiral[i][leftcol]=count;
+          count++;
+         }
+         leftcol++;
+        }
+        return spiral;
+    }
+}
