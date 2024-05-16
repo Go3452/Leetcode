@@ -1,0 +1,21 @@
+class Solution {
+    public int findComplement(int num) {
+        int pow=1;
+        int ans=0;
+        while(num>0)
+        {
+         int r=num%2;
+         if(r==1)
+         {
+          ans+=pow*0;
+         }
+         else
+         {
+          ans+=pow*1;
+         }
+         pow*=2;
+         num/=2;
+        }
+        return ans;
+    }
+}
