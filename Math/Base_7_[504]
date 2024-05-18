@@ -1,0 +1,21 @@
+class Solution {
+    public String convertToBase7(int num) {
+        if(num==0) return "0";
+        int sign=0;
+        if(num<0) 
+        {
+         sign=1;
+         num=-num;
+        }
+        String ans="";
+        while(num>0)
+        {
+         int n=num%7;
+         ans=Integer.toString(n)+ans;
+         num/=7;
+        }
+        if(sign==1)
+         ans="-"+ans;
+        return ans;
+    }
+}
