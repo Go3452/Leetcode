@@ -1,0 +1,23 @@
+class Solution {
+    public boolean detectCapitalUse(String word) {
+        int first=0,count=0,n=word.length();
+        if(word.charAt(0)>='A'&&word.charAt(0)<='Z')
+        {
+         first=1;count++;
+        }
+        for(int i=1;i<n;i++)
+        {
+         char ch = word.charAt(i);
+         if(ch>='A'&&ch<='Z')
+         {
+          if(first==0)
+           return false;
+          count++;
+         }
+        }
+        if(count==0||count==1) return true;
+        if(count!=n)
+         return false;
+        return true;
+    }
+}
