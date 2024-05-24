@@ -1,0 +1,18 @@
+class Solution {
+    public boolean isOneBitCharacter(int[] bits) {
+        int c0=0,c1=0,n=bits.length;
+        int flag=0;
+        for(int i=0;i<n;)
+        {
+         if(bits[i]==0)
+         { i++;flag=0;}
+         else
+         {
+          if(i==n-1) return false;
+          else{ i+=2;flag=1;}
+         }
+        }
+        if(flag==0) return true;
+        return false;
+    }
+}
