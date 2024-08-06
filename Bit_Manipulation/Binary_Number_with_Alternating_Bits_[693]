@@ -1,0 +1,15 @@
+class Solution {
+    public boolean hasAlternatingBits(int n) {
+        int r=n%2;
+        n/=2;
+        while(n>0)
+        {
+         int r1=n%2;
+         if(r1==r)
+          return false;
+         r=r1;
+         n/=2;
+        }
+        return true;
+    }
+}
