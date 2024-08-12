@@ -1,0 +1,19 @@
+class Solution {
+    public int minStartValue(int[] nums) {
+        int n=nums.length,sum=0;
+        for(int i=0;i<n;i++)
+        {
+         nums[i]+=sum;
+         sum=nums[i];
+        }
+        int min=20000;
+        for(int i=0;i<n;i++)
+        {
+         if(nums[i]<min)
+          min=nums[i];
+        }
+        if(min<0)
+         return -(min)+1;
+        return 1;
+    }
+}
