@@ -1,0 +1,2 @@
+select firstName, lastName, city, state
+from Person natural left outer join Address;
