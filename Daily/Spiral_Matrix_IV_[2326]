@@ -1,0 +1,82 @@
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public int[][] spiralMatrix(int m, int n, ListNode head) {
+        int [][]mat = new int[m][n];
+        int tr=0,br=m-1,lc=0,rc=n-1;
+        int total=m*n,c=0;
+        ListNode temp=head;
+        while(c<total)
+        {
+         for(int j=lc;j<=rc&&c<total;j++)
+         {
+          if(temp!=null)
+          {
+           mat[tr][j]=temp.val;
+           temp=temp.next;
+           c++;
+          }
+          else
+          {
+           mat[tr][j]=-1;
+           c++;
+         }
+         }
+         tr++;
+         for(int i=tr;i<=br&&c<total;i++)
+         {
+          if(temp!=null)
+          {
+           mat[i][rc]=temp.val;
+           temp=temp.next;
+           c++;
+          }
+          else
+          {
+           mat[i][rc]=-1;
+           c++;
+          }
+         }
+         rc--;
+          for(int j=rc;j>=lc&&c<total;j--)
+         {
+          if(temp!=null)
+          {
+           mat[br][j]=temp.val;
+           temp=temp.next;
+           c++;
+          }
+          else
+          {
+           mat[br][j]=-1;
+           c++;
+          }
+         }
+         br--;
+         for(int i=br;i>=tr&&c<total;i--)
+         {
+          if(temp!=null)
+          {
+           mat[i][lc]=temp.val;
+           temp=temp.next;
+           c++;
+          }
+          else
+          {
+           mat[i][lc]=-1;
+           c++;
+          }
+         }
+         lc++;
+        }
+        return mat;
+    }
+}
