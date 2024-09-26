@@ -1,0 +1,10 @@
+class Solution {
+    public int accountBalanceAfterPurchase(int purchaseAmount) {
+        int num=purchaseAmount%10;
+        if(num==0)
+         return 100-purchaseAmount;
+        else if(num<5)
+         return 100-(purchaseAmount/10*10);
+        return 100-(purchaseAmount/10*10+10);
+    }
+}
