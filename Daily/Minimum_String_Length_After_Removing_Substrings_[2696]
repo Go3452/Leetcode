@@ -1,0 +1,45 @@
+class Solution {
+    public int minLength(String s) {
+        String S="",a="AB",b="CD";
+        int n = s.length();
+        while(true)
+        {
+         n = s.length();
+         int ind1 = s.indexOf(a);
+         int ind2 = s.indexOf(b);
+         if(ind1!=-1)
+         {
+          if(ind1==0)
+          {
+           s=s.substring(2,n);
+          }
+          else if(ind1==n-2)
+          {
+           s=s.substring(0,n-2);
+          }
+          else
+          {
+           s=s.substring(0,ind1)+s.substring(ind1+2,n);
+          }
+         } 
+         else if(ind2!=-1)
+         {
+          if(ind2==0)
+          {
+           s=s.substring(2,n);
+          }
+          else if(ind2==n-2)
+          {
+           s=s.substring(0,n-2);
+          }
+          else
+          {
+           s=s.substring(0,ind2)+s.substring(ind2+2,n);
+          }
+         }
+         else
+          break;
+        }
+      return n;  
+    }
+}
