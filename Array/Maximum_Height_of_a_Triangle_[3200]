@@ -1,0 +1,64 @@
+class Solution {
+    public int maxHeightOfTriangle(int red, int blue) {
+     int max=red>blue?red:blue;
+     int min=red<blue?red:blue;
+     int flag=0,count1=0,count2=0,i=1;
+     while(true)
+     {
+      if(flag==0)
+      {
+       if(i<=max)
+       {
+        max-=i;
+        count1++;
+        flag=1;
+       }
+       else
+        break;
+      }
+      else
+      {
+       if(i<=min)
+       {
+        min-=i;
+        count1++;
+        flag=0;
+       }
+       else
+        break;
+      }
+      i++;
+     }
+     flag=1;
+     max=red>blue?red:blue;
+     min=red<blue?red:blue;
+     i=1;
+     while(true)
+     {
+      if(flag==0)
+      {
+       if(i<=max)
+       {
+        max-=i;
+        count2++;
+        flag=1;
+       }
+       else
+        break;
+      }
+      else
+      {
+       if(i<=min)
+       {
+        min-=i;
+        count2++;
+        flag=0;
+       }
+       else
+        break;
+      }
+      i++;
+     }
+     return count1>count2?count1:count2;
+    }
+}
