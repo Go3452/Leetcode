@@ -1,0 +1,26 @@
+class Solution {
+    public List<String> stringSequence(String target) {
+        List<String> ans = new ArrayList<>();
+        String S="",temp="";
+        char ch='a';
+        int n = target.length();
+        for(int i=0;i<n;)
+        {
+         temp=S;
+         temp+=ch;
+         if(target.charAt(i)==ch)
+         {
+          ans.add(temp);
+          ch='a';
+          S=temp;
+          i++;
+         }
+         else
+         {
+          ans.add(temp);
+          ch++;
+         }
+        }
+        return ans;
+    }
+}
